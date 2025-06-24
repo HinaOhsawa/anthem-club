@@ -1,0 +1,47 @@
+[
+  {
+    "country": "Japan",
+    "file": "/anthems/jp.mp3",
+    "display_name": "日本"
+  },
+  {
+    "country": "United States",
+    "file": "/anthems/us.mp3",
+    "display_name": "アメリカ合衆国"
+  },
+  {
+    "country": "France",
+    "file": "/anthems/fr.mp3",
+    "display_name": "フランンス"
+  },
+  {
+    "country": "Germany",
+    "file": "/anthems/de.mp3",
+    "display_name": "ドイツ"
+  },
+  {
+    "country": "United Kingdom",
+    "file": "/anthems/uk.mp3",
+    "display_name": "イギリス"
+  },
+  {
+    "country": "Canada",
+    "file": "/anthems/ca.mp3",
+    "display_name": "カナダ"
+  },
+  {
+    "country": "Australia",
+    "file": "/anthems/au.mp3",
+    "display_name": "オーストラリア"
+  },
+  {
+    "country": "Brazil",
+    "file": "/anthems/br.mp3",
+    "display_name": "ブラジル"
+  },
+  {
+    "country": "Italy",
+    "file": "/anthems/it.mp3",
+    "display_name": "イタリア"
+  }
+]
