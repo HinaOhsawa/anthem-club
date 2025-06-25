@@ -3,31 +3,40 @@ import AnthemPlayer from "../components/AnthemPlayer";
 import type { Question } from "../utils/quiz";
 import { generateOptions, generateQuestionSet } from "../utils/quiz";
 
+import { useNavigate } from "react-router-dom";
+import { useQuiz } from "../context/QuizContext";
+
 const TOTAL_QUESTIONS = 3; // 問題数
 
 export default function QuizPage() {
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [selected, setSelected] = useState<string | null>(null);
-  const [score, setScore] = useState<number>(0);
-  const [showResult, setShowResult] = useState<boolean>(false);
-  const [options, setOptions] = useState<Question[]>([]);
+  const [allCountries, setAllCountries] = useState<Question[]>([]); // 全ての国のデータ
+  const [questions, setQuestions] = useState<Question[]>([]); // 出題リスト
+  const [currentIndex, setCurrentIndex] = useState<number>(0); // 現在の問題のインデックス
+  const [options, setOptions] = useState<Question[]>([]); // 選択肢リスト
+
+  const [selected, setSelected] = useState<string | null>(null); // 選択された国
+  const [score, setScore] = useState<number>(0); // スコア
+  // const [showResult, setShowResult] = useState<boolean>(false); // 結果表示フラグ
+  const [selectedAnswers, setSelectedAnswers] = useState<Question[]>([]);
+  const navigate = useNavigate();
+  const { setQuizResult } = useQuiz();
 
   //---------------------------------------------------
   // JSONファイルから読み込み
   //---------------------------------------------------
+
   useEffect(() => {
     fetch("/data/country.json")
       .then((res) => res.json())
       .then((data: Question[]) => {
+        setAllCountries(data);
         const selectedQuestions = generateQuestionSet(data, TOTAL_QUESTIONS);
         setQuestions(selectedQuestions);
-        setOptions(generateOptions(selectedQuestions[0], selectedQuestions));
+        setOptions(generateOptions(selectedQuestions[currentIndex], data));
       });
   }, []);
 
   if (questions.length === 0) return <div>Loading...</div>;
-
   const correct = questions[currentIndex];
 
   //---------------------------------------------------
@@ -35,6 +44,12 @@ export default function QuizPage() {
   //---------------------------------------------------
   const handleAnswer = (country: string) => {
     setSelected(country);
+
+    const selectedOption = options.find((opt) => opt.country === country);
+    if (selectedOption) {
+      setSelectedAnswers((prev) => [...prev, selectedOption]);
+    }
+
     if (country === correct.country) {
       setScore((prev) => prev + 1);
     }
@@ -48,35 +63,22 @@ export default function QuizPage() {
       setCurrentIndex((prev) => prev + 1);
       setSelected(null);
       const nextCorrect = questions[currentIndex + 1];
-      setOptions(generateOptions(nextCorrect, questions));
+      setOptions(generateOptions(nextCorrect, allCountries));
     } else {
-      setShowResult(true);
+      handleFinish();
     }
+  };
+
+  const handleFinish = () => {
+    setQuizResult({
+      questions,
+      answers: selectedAnswers,
+      score,
+    });
+    navigate("/result");
   };
   //---------------------------------------------------
   if (!correct) return <div>Loading...</div>;
-
-  if (showResult) {
-    return (
-      <div className="text-center mt-10">
-        <h1 className="text-2xl">結果発表</h1>
-        <p>
-          あなたのスコア: {score} / {TOTAL_QUESTIONS}
-        </p>
-        <button
-          onClick={() => {
-            setCurrentIndex(0);
-            setSelected(null);
-            setScore(0);
-            setShowResult(false);
-          }}
-          className="mt-4 p-2 bg-blue-500 text-white rounded"
-        >
-          もう一度
-        </button>
-      </div>
-    );
-  }
 
   return (
     <div className="mt-20 text-center">
