@@ -1,15 +1,16 @@
 import ReactPlayer from "react-player";
 type Props = {
   file: string;
+  playing?: boolean;
 };
 
-export default function AnthemPlayer({ file }: Props) {
+export default function AnthemPlayer({ file, playing = false }: Props) {
   return (
-    <div>
+    <div className="flex justify-center my-4">
       <ReactPlayer
         url={file}
         controls
-        // playing={false}
+        playing={playing}
         width="400px"
         height="50px"
       />
