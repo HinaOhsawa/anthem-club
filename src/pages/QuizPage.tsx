@@ -16,7 +16,6 @@ export default function QuizPage() {
 
   const [selected, setSelected] = useState<string | null>(null); // 選択された国
   const [score, setScore] = useState<number>(0); // スコア
-  // const [showResult, setShowResult] = useState<boolean>(false); // 結果表示フラグ
   const [selectedAnswers, setSelectedAnswers] = useState<Question[]>([]);
   const navigate = useNavigate();
   const { setQuizResult } = useQuiz();
@@ -81,23 +80,22 @@ export default function QuizPage() {
   if (!correct) return <div>Loading...</div>;
 
   return (
-    <div className="mt-20 text-center">
+    <main>
       <h1 className="text-2xl mb-4">国歌当てクイズ</h1>
-      <p>第 {currentIndex + 1} 問</p>
-      <AnthemPlayer file={correct.file} />
+      <p className="text-xl">第 {currentIndex + 1} 問</p>
+      <AnthemPlayer file={correct.file} playing={true} />
 
       <div className="mt-10">
         {options.map((opt) => (
           <button
             key={opt.country}
             onClick={() => handleAnswer(opt.country)}
-            className={`m-2 p-4 rounded border
+            className={`answer-button
               ${
-                selected
-                  ? opt.country === selected
-                    ? "bg-gray-700"
-                    : ""
-                  : "bg-gray-950 hover:bg-gray-700"
+                selected &&
+                (opt.country === selected
+                  ? "cursor-auto bg-stone-600"
+                  : "cursor-auto hover:bg-stone-900")
               }`}
             disabled={selected !== null}
           >
@@ -107,24 +105,24 @@ export default function QuizPage() {
       </div>
 
       {selected && (
-        <div
-          className="mt-4 text-xl font-semibold"
-          style={{ color: selected === correct.country ? "green" : "red" }}
-        >
-          {selected === correct.country
-            ? `正解！「${correct.display_name}」です！`
-            : `不正解！正解は「${correct.display_name}」でした。`}
-        </div>
+        <>
+          <div
+            className={`mt-4 text-xl font-semibold
+          ${selected === correct.country ? "text-green-600" : "text-red-600"}`}
+          >
+            {selected === correct.country ? `正解！` : `不正解！`}
+          </div>
+          <p className="mt-4 text-xl font-semibold">
+            答えは「{correct.display_name}」でした
+          </p>
+        </>
       )}
 
       {selected && (
-        <button
-          onClick={handleNext}
-          className="mt-6 p-2 bg-blue-500 text-white rounded"
-        >
-          次の問題へ
+        <button onClick={handleNext} className="mt-6">
+          次の問題へ ＞
         </button>
       )}
-    </div>
+    </main>
   );
 }

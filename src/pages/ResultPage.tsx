@@ -1,5 +1,6 @@
 import { useQuiz } from "../context/QuizContext";
 import { useNavigate } from "react-router-dom";
+import AnthemPlayer from "../components/AnthemPlayer";
 
 const ResultPage = () => {
   const { quizResult, setQuizResult } = useQuiz();
@@ -17,9 +18,9 @@ const ResultPage = () => {
   };
 
   return (
-    <div>
-      <h1>結果</h1>
-      <p>
+    <main>
+      <h1 className="text-2xl mb-4">結果発表！</h1>
+      <p className="text-xl mb-6 font-bold">
         スコア: {score} / {questions.length}
       </p>
 
@@ -30,26 +31,21 @@ const ResultPage = () => {
 
           return (
             <li key={index}>
-              <h3>
-                Q{index + 1}: {q.display_name}
+              <h3 className="mt-4">
+                第{index + 1}問 : {q.display_name}
               </h3>
               <p>
-                あなたの答え: {userAnswer.display_name}{" "}
+                あなたの答え : {userAnswer.display_name}{" "}
                 {isCorrect ? "✅" : "❌"}
               </p>
-              <audio controls src={q.file}></audio>
+              <AnthemPlayer file={q.file}></AnthemPlayer>
               <hr />
             </li>
           );
         })}
       </ul>
-      <button
-        onClick={handleRetry}
-        className="mt-6 p-2 px-4 bg-green-600 text-white rounded"
-      >
-        もう一度プレイする
-      </button>
-    </div>
+      <button onClick={handleRetry}>もう一度プレイする！</button>
+    </main>
   );
 };
 
