@@ -8,7 +8,7 @@ type Props = {
 
 export default function QAnthemPlayer({ file }: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
@@ -43,7 +43,7 @@ export default function QAnthemPlayer({ file }: Props) {
         onClick={togglePlay}
         className="mt-2 p-3 aspect-square bg-orange-400 text-white rounded-full hover:bg-orange-300"
       >
-        {isPlaying ? <Play /> : <Pause />}
+        {isPlaying ? <Pause /> : <Play />}
       </button>
     </div>
   );
