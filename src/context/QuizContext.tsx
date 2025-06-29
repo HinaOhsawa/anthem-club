@@ -1,16 +1,5 @@
 import { createContext, useContext, useState } from "react";
-
-export type Question = {
-  country: string;
-  display_name: string;
-  file: string;
-};
-
-type QuizResult = {
-  questions: Question[];
-  answers: Question[];
-  score: number;
-};
+import type { QuizResult } from "../types/questions";
 
 const QuizContext = createContext<{
   quizResult: QuizResult;

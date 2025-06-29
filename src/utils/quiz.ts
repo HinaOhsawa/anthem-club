@@ -1,8 +1,4 @@
-export type Question = {
-  country: string;
-  display_name: string;
-  file: string;
-};
+import type { Question } from "../types/questions";
 
 // 配列をシャッフル
 export function shuffleArray<T>(array: T[]): T[] {
