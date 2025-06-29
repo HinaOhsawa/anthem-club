@@ -12,11 +12,9 @@ export default function HomePage() {
 
       <p className="font-bold text-3xl font-kaisei mb-2 ">国歌当てクイズ</p>
       <p className="text-md font-bold">
-        国歌の音声を聞いて、選択肢から正しい国を当てるクイズゲームです。
+        世界の国歌を聴いて、どこの国か当ててみよう！
       </p>
-      <p className="text-md font-bold">
-        クイズに挑戦して、世界の国歌を学ぼう！
-      </p>
+
       <div className="flex flex-wrap justify-center items-center gap-4 my-4">
         <img className="w-20 sm:w-30" src="images/ouen-mamo.png" alt="" />
 
