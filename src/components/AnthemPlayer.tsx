@@ -11,7 +11,8 @@ export default function AnthemPlayer({ file, playing = false }: Props) {
         url={file}
         controls
         playing={playing}
-        width="400px"
+        max-width="300px"
+        width="100%"
         height="50px"
       />
     </div>

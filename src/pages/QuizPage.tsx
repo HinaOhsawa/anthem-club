@@ -1,6 +1,6 @@
 import type { Question } from "../types/questions";
 import { useState, useEffect } from "react";
-import AnthemPlayer from "../components/AnthemPlayer";
+import QAnthemPlayer from "../components/QAnthemPlayer";
 import { generateOptions, generateQuestionSet } from "../utils/quiz";
 import country from "../data/country.json";
 
@@ -76,10 +76,12 @@ export default function QuizPage() {
   const code = correct.code;
 
   return (
-    <main>
-      <h1 className="text-3xl mb-4 font-kaisei">国歌当てクイズ</h1>
-      <p className="text-xl font-bold">第 {currentIndex + 1} 問</p>
-      <AnthemPlayer file={correct.file} playing={true} />
+    <>
+      <h1 className="text-2xl font-kaisei mb-4">国歌当てクイズ</h1>
+      <p className="text-xl font-bold py-2 mb-6  bg-orange-200">
+        第 {currentIndex + 1} 問
+      </p>
+      <QAnthemPlayer file={correct.file} />
 
       <div className="mt-10">
         {options.map((opt) => (
@@ -109,7 +111,7 @@ export default function QuizPage() {
             {selected === correct.country ? `正解！` : `不正解！`}
           </div>
           <img
-            className="w-40 m-auto"
+            className="w-30 m-auto"
             src={
               selected === correct.country
                 ? `images/marakas-mamo.png`
@@ -131,6 +133,6 @@ export default function QuizPage() {
             : " 次の問題へ ＞"}
         </button>
       )}
-    </main>
+    </>
   );
 }
