@@ -81,8 +81,8 @@ export default function QuizPage() {
 
   return (
     <main>
-      <h1 className="text-2xl mb-4">国歌当てクイズ</h1>
-      <p className="text-xl">第 {currentIndex + 1} 問</p>
+      <h1 className="text-3xl mb-4 font-kaisei">国歌当てクイズ</h1>
+      <p className="text-xl font-bold">第 {currentIndex + 1} 問</p>
       <AnthemPlayer file={correct.file} playing={true} />
 
       <div className="mt-10">
@@ -107,20 +107,31 @@ export default function QuizPage() {
       {selected && (
         <>
           <div
-            className={`mt-4 text-xl font-semibold
+            className={`mt-6 text-2xl font-semibold font-kaisei
           ${selected === correct.country ? "text-green-600" : "text-red-600"}`}
           >
             {selected === correct.country ? `正解！` : `不正解！`}
           </div>
+          <img
+            className="w-40 m-auto"
+            src={
+              selected === correct.country
+                ? `images/marakas-mamo.png`
+                : `images/mamosakebu.png`
+            }
+            alt=""
+          />
           <p className="mt-4 text-xl font-semibold">
-            答えは「{correct.display_name}」でした
+            答えは「{correct.display_name}」でした！
           </p>
         </>
       )}
 
       {selected && (
         <button onClick={handleNext} className="mt-6">
-          次の問題へ ＞
+          {currentIndex + 1 == TOTAL_QUESTIONS
+            ? " 結果発表へ ＞"
+            : " 次の問題へ ＞"}
         </button>
       )}
     </main>
