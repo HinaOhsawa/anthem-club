@@ -1,56 +1,242 @@
 [
   {
-    "country": "Japan",
-    "file": "/anthems/jp.mp3",
-    "display_name": "日本",
-    "code": "JP"
-  },
-  {
     "country": "United States",
     "file": "/anthems/us.mp3",
     "display_name": "アメリカ合衆国",
-    "code": "US"
+    "code": "US",
+    "region": "North America",
+    "g7": true
   },
   {
-    "country": "France",
-    "file": "/anthems/fr.mp3",
-    "display_name": "フランンス",
-    "code": "FR"
+    "country": "Japan",
+    "file": "/anthems/jp.mp3",
+    "display_name": "日本",
+    "code": "JP",
+    "region": "Asia",
+    "g7": true
   },
   {
-    "country": "Germany",
-    "file": "/anthems/de.mp3",
-    "display_name": "ドイツ",
-    "code": "DE"
+    "country": "China",
+    "file": "/anthems/cn.mp3",
+    "display_name": "中国",
+    "code": "CN",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "South Korea",
+    "file": "/anthems/kr.mp3",
+    "display_name": "韓国",
+    "code": "KR",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Russia",
+    "file": "/anthems/ru.mp3",
+    "display_name": "ロシア",
+    "code": "RU",
+    "region": "Europe",
+    "g7": false
   },
   {
     "country": "United Kingdom",
     "file": "/anthems/gb.mp3",
     "display_name": "イギリス",
-    "code": "GB"
+    "code": "GB",
+    "region": "Europe",
+    "g7": true
   },
   {
-    "country": "Canada",
-    "file": "/anthems/ca.mp3",
-    "display_name": "カナダ",
-    "code": "CA"
+    "country": "France",
+    "file": "/anthems/fr.mp3",
+    "display_name": "フランス",
+    "code": "FR",
+    "region": "Europe",
+    "g7": true
   },
   {
-    "country": "Australia",
-    "file": "/anthems/au.mp3",
-    "display_name": "オーストラリア",
-    "code": "AU"
-  },
-  {
-    "country": "Brazil",
-    "file": "/anthems/br.mp3",
-    "display_name": "ブラジル",
-    "code": "BR"
+    "country": "Germany",
+    "file": "/anthems/de.mp3",
+    "display_name": "ドイツ",
+    "code": "DE",
+    "region": "Europe",
+    "g7": true
   },
   {
     "country": "Italy",
     "file": "/anthems/it.mp3",
     "display_name": "イタリア",
-    "code": "IT"
+    "code": "IT",
+    "region": "Europe",
+    "g7": true
+  },
+  {
+    "country": "Canada",
+    "file": "/anthems/ca.mp3",
+    "display_name": "カナダ",
+    "code": "CA",
+    "region": "North America",
+    "g7": true
+  },
+  {
+    "country": "Australia",
+    "file": "/anthems/au.mp3",
+    "display_name": "オーストラリア",
+    "code": "AU",
+    "region": "Australia",
+    "g7": false
+  },
+  {
+    "country": "India",
+    "file": "/anthems/in.mp3",
+    "display_name": "インド",
+    "code": "IN",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Brazil",
+    "file": "/anthems/br.mp3",
+    "display_name": "ブラジル",
+    "code": "BR",
+    "region": "South America",
+    "g7": false
+  },
+  {
+    "country": "Mexico",
+    "file": "/anthems/mx.mp3",
+    "display_name": "メキシコ",
+    "code": "MX",
+    "region": "North America",
+    "g7": false
+  },
+  {
+    "country": "Spain",
+    "file": "/anthems/es.mp3",
+    "display_name": "スペイン",
+    "code": "ES",
+    "region": "Europe",
+    "g7": false
+  },
+  {
+    "country": "Saudi Arabia",
+    "file": "/anthems/sa.mp3",
+    "display_name": "サウジアラビア",
+    "code": "SA",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Turkey",
+    "file": "/anthems/tr.mp3",
+    "display_name": "トルコ",
+    "code": "TR",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Argentina",
+    "file": "/anthems/ar.mp3",
+    "display_name": "アルゼンチン",
+    "code": "AR",
+    "region": "South America",
+    "g7": false
+  },
+  {
+    "country": "South Africa",
+    "file": "/anthems/za.mp3",
+    "display_name": "南アフリカ",
+    "code": "ZA",
+    "region": "Africa",
+    "g7": false
+  },
+  {
+    "country": "Sweden",
+    "file": "/anthems/se.mp3",
+    "display_name": "スウェーデン",
+    "code": "SE",
+    "region": "Europe",
+    "g7": false
+  },
+  {
+    "country": "Switzerland",
+    "file": "/anthems/ch.mp3",
+    "display_name": "スイス",
+    "code": "CH",
+    "region": "Europe",
+    "g7": false
+  },
+  {
+    "country": "Netherlands",
+    "file": "/anthems/nl.mp3",
+    "display_name": "オランダ",
+    "code": "NL",
+    "region": "Europe",
+    "g7": false
+  },
+  {
+    "country": "Belgium",
+    "file": "/anthems/be.mp3",
+    "display_name": "ベルギー",
+    "code": "BE",
+    "region": "Europe",
+    "g7": false
+  },
+  {
+    "country": "Norway",
+    "file": "/anthems/no.mp3",
+    "display_name": "ノルウェー",
+    "code": "NO",
+    "region": "Europe",
+    "g7": false
+  },
+  {
+    "country": "Poland",
+    "file": "/anthems/pl.mp3",
+    "display_name": "ポーランド",
+    "code": "PL",
+    "region": "Europe",
+    "g7": false
+  },
+  {
+    "country": "Ukraine",
+    "file": "/anthems/ua.mp3",
+    "display_name": "ウクライナ",
+    "code": "UA",
+    "region": "Europe",
+    "g7": false
+  },
+  {
+    "country": "Thailand",
+    "file": "/anthems/th.mp3",
+    "display_name": "タイ",
+    "code": "TH",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Indonesia",
+    "file": "/anthems/id.mp3",
+    "display_name": "インドネシア",
+    "code": "ID",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Philippines",
+    "file": "/anthems/ph.mp3",
+    "display_name": "フィリピン",
+    "code": "PH",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Singapore",
+    "file": "/anthems/sg.mp3",
+    "display_name": "シンガポール",
+    "code": "SG",
+    "region": "Asia",
+    "g7": false
   }
 ]
