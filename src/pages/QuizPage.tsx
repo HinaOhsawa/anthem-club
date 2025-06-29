@@ -2,6 +2,7 @@ import type { Question } from "../types/questions";
 import { useState, useEffect } from "react";
 import AnthemPlayer from "../components/AnthemPlayer";
 import { generateOptions, generateQuestionSet } from "../utils/quiz";
+import country from "../data/country.json";
 
 import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../context/QuizContext";
@@ -20,25 +21,18 @@ export default function QuizPage() {
   const [selectedAnswers, setSelectedAnswers] = useState<Question[]>([]);
   const navigate = useNavigate();
   const { setQuizResult } = useQuiz();
+  const correct = questions[currentIndex];
 
   //---------------------------------------------------
   // JSONファイルから読み込み
   //---------------------------------------------------
 
   useEffect(() => {
-    fetch("/data/country.json")
-      .then((res) => res.json())
-      .then((data: Question[]) => {
-        setAllCountries(data);
-        const selectedQuestions = generateQuestionSet(data, TOTAL_QUESTIONS);
-        setQuestions(selectedQuestions);
-        setOptions(generateOptions(selectedQuestions[currentIndex], data));
-      });
+    setAllCountries(country);
+    const selectedQuestions = generateQuestionSet(country, TOTAL_QUESTIONS);
+    setQuestions(selectedQuestions);
+    setOptions(generateOptions(selectedQuestions[currentIndex], country));
   }, []);
-
-  if (questions.length === 0) return <div>Loading...</div>;
-  const correct = questions[currentIndex];
-
   //---------------------------------------------------
   // 選択肢を選んだときの処理
   //---------------------------------------------------
