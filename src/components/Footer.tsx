@@ -18,7 +18,7 @@ export default function Footer() {
       <div className="text-left p-2 max-w-4xl mx-auto">
         <p className="font-bold ">Credit</p>
         <p>
-          Music files：
+          Music Files：
           <a
             className="underline"
             target="_blank"
@@ -28,7 +28,7 @@ export default function Footer() {
           </a>
         </p>
         <p>
-          illustration：
+          Illustration：
           <a
             className="underline"
             target="_blank"
@@ -38,13 +38,19 @@ export default function Footer() {
           </a>
         </p>
         <p>
-          national flag：
+          National Flag：
           <a
             className="underline"
             target="_blank"
             href="https://www.npmjs.com/package/react-world-flags"
           >
             react-world-flags
+          </a>
+        </p>
+        <p>
+          Icon Library：
+          <a className="underline" target="_blank" href="https://lucide.dev/">
+            Lucide
           </a>
         </p>
       </div>

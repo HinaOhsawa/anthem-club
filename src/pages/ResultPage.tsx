@@ -28,7 +28,7 @@ const ResultPage = () => {
   }
 
   return (
-    <main>
+    <>
       <h1 className="text-3xl py-2 mb-6 bg-orange-200 text-orange-950 font-kaisei">
         結果発表！
       </h1>
@@ -58,13 +58,12 @@ const ResultPage = () => {
                 {isCorrect ? "✅" : "❌"}
               </p>
               <AnthemPlayer file={q.file}></AnthemPlayer>
-              {/* <hr className="text-stone-500 " /> */}
             </li>
           );
         })}
       </ul>
       <button onClick={handleRetry}>もう一度やる！</button>
-    </main>
+    </>
   );
 };
 

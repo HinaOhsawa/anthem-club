@@ -3,7 +3,7 @@ import CountryList from "../components/CountryList";
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       <div className="flex  justify-center">
         <img src="images/icon-world_color.png" alt="" className="h-10 mr-2" />
         <h1 className="text-4xl logo mb-2">Anthem Club</h1>
@@ -33,6 +33,6 @@ export default function HomePage() {
       </div>
 
       <CountryList />
-    </main>
+    </>
   );
 }

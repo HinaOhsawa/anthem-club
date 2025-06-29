@@ -34,13 +34,13 @@ export default function CountryList() {
 
         return (
           <section key={region} className="mb-6">
-            <h2 className="text-xl text-left font-semibold mb-3">{region}</h2>
+            <h2 className="text-xl text-left font-semibold mb-2">{region}</h2>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {countries.map((item: Question) => (
                 <div
                   key={item.code}
-                  className="p-3 border border-stone-400 rounded text-center"
+                  className="p-3 bg-orange-100 rounded text-center"
                 >
                   <p className="text-sm font-bold mb-2">{item.display_name}</p>
                   <Flag className="m-auto h-20 shadow-md" code={item.code} />
