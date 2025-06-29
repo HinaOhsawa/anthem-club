@@ -1,10 +1,11 @@
+import type { Question } from "../types/questions";
 import { useState, useEffect } from "react";
 import AnthemPlayer from "../components/AnthemPlayer";
-import type { Question } from "../utils/quiz";
 import { generateOptions, generateQuestionSet } from "../utils/quiz";
 
 import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../context/QuizContext";
+import Flag from "react-world-flags";
 
 const TOTAL_QUESTIONS = 3; // 問題数
 
@@ -78,6 +79,7 @@ export default function QuizPage() {
   };
   //---------------------------------------------------
   if (!correct) return <div>Loading...</div>;
+  const code = correct.code;
 
   return (
     <main>
@@ -124,6 +126,7 @@ export default function QuizPage() {
           <p className="mt-4 text-xl font-semibold">
             答えは「{correct.display_name}」でした！
           </p>
+          <Flag className="m-auto h-20 shadow-md" code={code} />
         </>
       )}
 

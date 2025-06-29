@@ -2,46 +2,55 @@
   {
     "country": "Japan",
     "file": "/anthems/jp.mp3",
-    "display_name": "日本"
+    "display_name": "日本",
+    "code": "JP"
   },
   {
     "country": "United States",
     "file": "/anthems/us.mp3",
-    "display_name": "アメリカ合衆国"
+    "display_name": "アメリカ合衆国",
+    "code": "US"
   },
   {
     "country": "France",
     "file": "/anthems/fr.mp3",
-    "display_name": "フランンス"
+    "display_name": "フランンス",
+    "code": "FR"
   },
   {
     "country": "Germany",
     "file": "/anthems/de.mp3",
-    "display_name": "ドイツ"
+    "display_name": "ドイツ",
+    "code": "DE"
   },
   {
     "country": "United Kingdom",
-    "file": "/anthems/uk.mp3",
-    "display_name": "イギリス"
+    "file": "/anthems/gb.mp3",
+    "display_name": "イギリス",
+    "code": "GB"
   },
   {
     "country": "Canada",
     "file": "/anthems/ca.mp3",
-    "display_name": "カナダ"
+    "display_name": "カナダ",
+    "code": "CA"
   },
   {
     "country": "Australia",
     "file": "/anthems/au.mp3",
-    "display_name": "オーストラリア"
+    "display_name": "オーストラリア",
+    "code": "AU"
   },
   {
     "country": "Brazil",
     "file": "/anthems/br.mp3",
-    "display_name": "ブラジル"
+    "display_name": "ブラジル",
+    "code": "BR"
   },
   {
     "country": "Italy",
     "file": "/anthems/it.mp3",
-    "display_name": "イタリア"
+    "display_name": "イタリア",
+    "code": "IT"
   }
 ]
