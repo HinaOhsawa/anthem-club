@@ -24,7 +24,7 @@ export default function CountryList() {
   const grouped = groupByRegion(country);
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="mx-auto py-4">
       <p className="text-lg font-bold">
         以下{country.length}カ国の中から出題されます
       </p>
