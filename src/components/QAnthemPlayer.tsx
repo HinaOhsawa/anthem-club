@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
 
 type Props = {
@@ -9,6 +9,14 @@ type Props = {
 export default function QAnthemPlayer({ file }: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  // fileが変更されたら再生し直す＆再生状態もtrueに戻す
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play().catch((e) => console.warn("Autoplay failed:", e));
+      setIsPlaying(true);
+    }
+  }, [file]);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
