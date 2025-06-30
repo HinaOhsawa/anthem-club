@@ -1,54 +1,61 @@
-# React + TypeScript + Vite
+# Anthem Club
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+世界の国歌を聴いて、どこの国かを当てるクイズゲームです。Vite+React+TypeScript を使用して作成しました。デプロイは Vercel を使用しています。
 
-Currently, two official plugins are available:
+## 🌏 デモ
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[https://anthem-club.vercel.app/](https://anthem-club.vercel.app/)
 
-## Expanding the ESLint configuration
+## 遊び方
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 「クイズを始める！」ボタンを押してクイズを開始します。
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- ランダムに選ばれた国歌が再生されます。
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 音楽は、再生・停止マークボタンを押して制御できます。
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 4 つの選択肢の中なら正解だと思う国を選んでください。
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+正解か不正解かが表示され、答えの国が表示されます。
+
+- 「次の問題へ＞」ボタンを押して次の問題に進めます。
+
+- 全部で 3 問を答えて、結果発表ページを見れます。
+  トップページに戻りたい時は左上のロゴを押してください。
+
+## 使用技術
+
+<table>
+  <tbody>
+      <tr>
+      <td>フレームワーク</td>
+      <td>Vite+React+TypeScript</td>
+    </tr>
+    <tr>
+      <td>CSSフレームワーク</td>
+      <td>Tailwind CSS</td>
+    </tr>
+    <tr>
+      <td>ホスティングサービス</td>
+      <td>Vercel</td>
+    </tr>
+    <tr>
+      <td>国旗ライブラリ</td>
+      <td>react-world-flags</td>
+    </tr>
+    <tr>
+      <td>アイコンライブラリ</td>
+      <td>lucide</td>
+    </tr>
+  </tbody>
+</table>
+
+## こだわった点
+
+国旗やイラストを使って視覚的にわかりやすく、楽しい見た目にこだわった。
+
+結果ページはスコアに応じて画像とコメントを変えて、もう一度遊びたくなるように工夫した。
+
+また、出題された国歌を聞けるようにして、復習できるようにした。
+
+今後、リージョンごとに分けて問題を出題したり、主要な国のみから出題したりできるように開発する予定です。
