@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import QAnthemPlayer from "../components/QAnthemPlayer";
 import { generateOptions, generateQuestionSet } from "../utils/quiz";
 import country from "../data/country.json";
-
 import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../context/QuizContext";
 import Flag from "react-world-flags";
+import { useSearchParams } from "react-router-dom";
 
 const TOTAL_QUESTIONS = 3; // 問題数
 
@@ -23,16 +23,58 @@ export default function QuizPage() {
   const { setQuizResult } = useQuiz();
   const correct = questions[currentIndex];
 
+  const [searchParams] = useSearchParams();
+  const region = searchParams.get("region"); // 出題範囲を取得
+
   //---------------------------------------------------
   // JSONファイルから読み込み
   //---------------------------------------------------
 
   useEffect(() => {
-    setAllCountries(country);
-    const selectedQuestions = generateQuestionSet(country, TOTAL_QUESTIONS);
+    let filtered: Question[] = [];
+
+    if (region === "americas") {
+      filtered = country.filter(
+        (q) => q.region === "North America" || q.region === "South America"
+      );
+    } else if (region === "europe") {
+      filtered = country.filter((q) => q.region === "Europe");
+    } else if (region === "other") {
+      filtered = country.filter(
+        (q) =>
+          q.region === "Asia" || q.region === "Africa" || q.region === "Oceania"
+      );
+    } else if (region === "g7") {
+      filtered = country.filter((q) => q.g7 === true);
+    } else {
+      // fallback（全体）
+      filtered = country;
+    }
+
+    setAllCountries(filtered);
+    const selectedQuestions = generateQuestionSet(filtered, TOTAL_QUESTIONS);
     setQuestions(selectedQuestions);
-    setOptions(generateOptions(selectedQuestions[currentIndex], country));
-  }, []);
+    setOptions(generateOptions(selectedQuestions[currentIndex], filtered));
+  }, [region]);
+
+  //---------------------------------------------------
+  // 出題範囲の表示名を取得する関数
+  //---------------------------------------------------
+  const regionDisplayName = (region: string) => {
+    switch (region) {
+      case "g7":
+        return "G7加盟国";
+      case "americas":
+        return "北アメリカ・南アメリカ";
+      case "europe":
+        return "ヨーロッパ";
+      case "other":
+        return "アジア・アフリカ・オセアニア";
+      case "all":
+      default:
+        return "全ての国";
+    }
+  };
   //---------------------------------------------------
   // 選択肢を選んだときの処理
   //---------------------------------------------------
@@ -69,7 +111,7 @@ export default function QuizPage() {
       answers: selectedAnswers,
       score,
     });
-    navigate("/result");
+    navigate(`/result?region=${region}`);
   };
   //---------------------------------------------------
   if (!correct) return <div>Loading...</div>;
@@ -78,6 +120,10 @@ export default function QuizPage() {
   return (
     <>
       <h1 className="text-2xl font-kaisei mb-4">国歌当てクイズ</h1>
+      <p className="font-bold text-orange-700 mb-4">
+        出題範囲：
+        <span className="">{regionDisplayName(region ?? "all")}</span>
+      </p>
       <p className="text-xl font-bold py-2 mb-6  bg-orange-200">
         第 {currentIndex + 1} 問
       </p>

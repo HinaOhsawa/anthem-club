@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CountryList from "../components/CountryList";
+import RegionSelector from "../components/RegionSelector";
 
 export default function HomePage() {
+  const navigate = useNavigate();
+
+  const handleStartQuiz = (region: string) => {
+    navigate(`/quiz?region=${region}`);
+  };
+
   return (
     <>
       <div className="flex  justify-center">
@@ -15,12 +22,15 @@ export default function HomePage() {
         世界の国歌を聴いて、どこの国か当ててみよう！
       </p>
 
-      <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 my-4">
+      <div className="flex flex-wrap justify-center items-center gap-0 sm:gap-4 my-4">
         <img className="w-20 sm:w-30" src="images/ouen-mamo.png" alt="" />
 
-        <Link to="/quiz">
-          <button>クイズを始める！</button>
-        </Link>
+        <div>
+          <p className="font-bold text-mx">全ての国でチャレンジ！</p>
+          <Link to="/quiz?region=all">
+            <button className="m-2">クイズを始める！</button>
+          </Link>
+        </div>
 
         <img
           className="w-20 sm:w-30"
@@ -30,6 +40,7 @@ export default function HomePage() {
         />
       </div>
 
+      <RegionSelector onSelect={handleStartQuiz} />
       <CountryList />
     </>
   );

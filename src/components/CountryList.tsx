@@ -8,7 +8,7 @@ const regionOrder = [
   "Europe",
   "Africa",
   "Asia",
-  "Australia",
+  "Oceania",
 ];
 
 // regionごとに国をグループ化するヘルパー関数

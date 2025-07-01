@@ -50,6 +50,9 @@
   button {
     @apply mt-6 bg-orange-400 text-white font-semibold py-2 px-4 rounded-full hover:bg-orange-300 cursor-pointer;
   }
+  .region-button {
+    @apply mt-4 sm:mx-2 m-auto bg-orange-100 text-orange-950 border border-orange-900 font-semibold py-2 px-4 rounded-full hover:bg-orange-200 cursor-pointer sm:inline-block block w-full sm:w-auto;
+  }
   .answer-button {
     @apply m-2 bg-stone-900 border border-stone-200 text-white font-semibold py-2 px-4 rounded hover:bg-stone-600 cursor-pointer;
   }

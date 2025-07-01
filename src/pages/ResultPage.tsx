@@ -1,11 +1,20 @@
 import { useQuiz } from "../context/QuizContext";
-import { useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import AnthemPlayer from "../components/AnthemPlayer";
+import { Link } from "react-router-dom";
+import RegionSelector from "../components/RegionSelector";
 
 const ResultPage = () => {
   const { quizResult, setQuizResult } = useQuiz();
   const { questions, answers, score } = quizResult;
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const region = searchParams.get("region") ?? "all"; // 出題範囲を取得
+
+  // 出題範囲にボタンのハンドラー
+  const handleStartQuiz = (region: string) => {
+    navigate(`/quiz?region=${region}`);
+  };
 
   const handleRetry = () => {
     // 必要なら状態をリセット
@@ -14,7 +23,7 @@ const ResultPage = () => {
       answers: [],
       score: 0,
     });
-    navigate("/quiz"); // クイズページに戻る
+    navigate(`/quiz?region=${region}`); // クイズページに戻る
   };
 
   let imgFile = "images/kenka2-mamo.png";
@@ -32,7 +41,7 @@ const ResultPage = () => {
       <h1 className="text-3xl py-2 mb-6 bg-orange-200 text-orange-950 font-kaisei">
         結果発表！
       </h1>
-      <p className="text-xl font-bold text-orange-500">
+      <p className="mb-4 text-2xl font-bold text-orange-500">
         スコア: {score} / {questions.length}
       </p>
       <p className="font-kaisei text-lg m-0 font-bold text-stone-600">
@@ -63,6 +72,14 @@ const ResultPage = () => {
         })}
       </ul>
       <button onClick={handleRetry}>もう一度やる！</button>
+
+      <RegionSelector onSelect={handleStartQuiz} />
+
+      <div className=" mt-6">
+        <Link to="/" className="underline">
+          ホームへ戻る
+        </Link>
+      </div>
     </>
   );
 };
