@@ -1,6 +1,7 @@
 # Anthem Club - 国歌当てクイズ
 
 世界の国歌を聴いて、どこの国かを当てるクイズゲームです。Vite+React+TypeScript を使用して作成しました。デプロイは Vercel を使用しています。
+![サイトトップ](./public/images/og-image.jpg)
 
 ## 🌏 デモ
 
