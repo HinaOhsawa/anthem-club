@@ -1,5 +1,5 @@
 import type { Question } from "../types/questions";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import QAnthemPlayer from "../components/QAnthemPlayer";
 import { generateOptions, generateQuestionSet } from "../utils/quiz";
 import country from "../data/country.json";
@@ -25,6 +25,7 @@ export default function QuizPage() {
 
   const [searchParams] = useSearchParams();
   const region = searchParams.get("region"); // 出題範囲を取得
+  const resultRef = useRef<HTMLDivElement>(null);
 
   //---------------------------------------------------
   // JSONファイルから読み込み
@@ -91,6 +92,13 @@ export default function QuizPage() {
     }
   };
 
+  useEffect(() => {
+    // 正誤判定までスクロール
+    if (resultRef.current) {
+      resultRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [selected]);
+
   //---------------------------------------------------
   // 次の問題へ進む処理
   //---------------------------------------------------
@@ -100,6 +108,7 @@ export default function QuizPage() {
       setSelected(null);
       const nextCorrect = questions[currentIndex + 1];
       setOptions(generateOptions(nextCorrect, allCountries));
+      window.scrollTo(0, 0);
     } else {
       handleFinish();
     }
@@ -151,7 +160,8 @@ export default function QuizPage() {
       {selected && (
         <>
           <div
-            className={`mt-6 text-2xl font-semibold font-kaisei
+            ref={resultRef}
+            className={`scroll-mt-16 mt-6 text-2xl font-semibold font-kaisei
           ${selected === correct.country ? "text-green-600" : "text-red-600"}`}
           >
             {selected === correct.country ? `正解！` : `不正解！`}
