@@ -95,6 +95,47 @@
     "region": "Asia",
     "g7": false
   },
+
+  {
+    "country": "Chile",
+    "file": "/anthems/cl.mp3",
+    "display_name": "チリ",
+    "code": "CL",
+    "region": "South America",
+    "g7": false
+  },
+  {
+    "country": "Colombia",
+    "file": "/anthems/co.mp3",
+    "display_name": "コロンビア",
+    "code": "CO",
+    "region": "South America",
+    "g7": false
+  },
+  {
+    "country": "Peru",
+    "file": "/anthems/pe.mp3",
+    "display_name": "ペルー",
+    "code": "PE",
+    "region": "South America",
+    "g7": false
+  },
+  {
+    "country": "Uruguay",
+    "file": "/anthems/uy.mp3",
+    "display_name": "ウルグアイ",
+    "code": "UY",
+    "region": "South America",
+    "g7": false
+  },
+  {
+    "country": "Bolivia",
+    "file": "/anthems/bo.mp3",
+    "display_name": "ボリビア",
+    "code": "BO",
+    "region": "South America",
+    "g7": false
+  },
   {
     "country": "Brazil",
     "file": "/anthems/br.mp3",
@@ -108,6 +149,38 @@
     "file": "/anthems/mx.mp3",
     "display_name": "メキシコ",
     "code": "MX",
+    "region": "North America",
+    "g7": false
+  },
+  {
+    "country": "Cuba",
+    "file": "/anthems/cu.mp3",
+    "display_name": "キューバ",
+    "code": "CU",
+    "region": "North America",
+    "g7": false
+  },
+  {
+    "country": "Dominican Republic",
+    "file": "/anthems/do.mp3",
+    "display_name": "ドミニカ共和国",
+    "code": "DO",
+    "region": "North America",
+    "g7": false
+  },
+  {
+    "country": "Haiti",
+    "file": "/anthems/ht.mp3",
+    "display_name": "ハイチ",
+    "code": "HT",
+    "region": "North America",
+    "g7": false
+  },
+  {
+    "country": "Jamaica",
+    "file": "/anthems/jm.mp3",
+    "display_name": "ジャマイカ",
+    "code": "JM",
     "region": "North America",
     "g7": false
   },
@@ -151,6 +224,87 @@
     "region": "Africa",
     "g7": false
   },
+  {
+    "country": "Nigeria",
+    "file": "/anthems/ng.mp3",
+    "display_name": "ナイジェリア",
+    "code": "NG",
+    "region": "Africa",
+    "g7": false
+  },
+  {
+    "country": "Kenya",
+    "file": "/anthems/ke.mp3",
+    "display_name": "ケニア",
+    "code": "KE",
+    "region": "Africa",
+    "g7": false
+  },
+  {
+    "country": "Egypt",
+    "file": "/anthems/eg.mp3",
+    "display_name": "エジプト",
+    "code": "EG",
+    "region": "Africa",
+    "g7": false
+  },
+  {
+    "country": "Morocco",
+    "file": "/anthems/ma.mp3",
+    "display_name": "モロッコ",
+    "code": "MA",
+    "region": "Africa",
+    "g7": false
+  },
+  {
+    "country": "Tunisia",
+    "file": "/anthems/tn.mp3",
+    "display_name": "チュニジア",
+    "code": "TN",
+    "region": "Africa",
+    "g7": false
+  },
+  {
+    "country": "Ethiopia",
+    "file": "/anthems/et.mp3",
+    "display_name": "エチオピア",
+    "code": "ET",
+    "region": "Africa",
+    "g7": false
+  },
+  {
+    "country": "Tanzania",
+    "file": "/anthems/tz.mp3",
+    "display_name": "タンザニア",
+    "code": "TZ",
+    "region": "Africa",
+    "g7": false
+  },
+  {
+    "country": "Ghana",
+    "file": "/anthems/gh.mp3",
+    "display_name": "ガーナ",
+    "code": "GH",
+    "region": "Africa",
+    "g7": false
+  },
+  {
+    "country": "Algeria",
+    "file": "/anthems/dz.mp3",
+    "display_name": "アルジェリア",
+    "code": "DZ",
+    "region": "Africa",
+    "g7": false
+  },
+  {
+    "country": "Uganda",
+    "file": "/anthems/ug.mp3",
+    "display_name": "ウガンダ",
+    "code": "UG",
+    "region": "Africa",
+    "g7": false
+  },
+
   {
     "country": "Sweden",
     "file": "/anthems/se.mp3",
@@ -237,6 +391,86 @@
     "display_name": "シンガポール",
     "code": "SG",
     "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Vietnam",
+    "file": "/anthems/vn.mp3",
+    "display_name": "ベトナム",
+    "code": "VN",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Malaysia",
+    "file": "/anthems/my.mp3",
+    "display_name": "マレーシア",
+    "code": "MY",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Mongolia",
+    "file": "/anthems/mn.mp3",
+    "display_name": "モンゴル",
+    "code": "MN",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "Nepal",
+    "file": "/anthems/np.mp3",
+    "display_name": "ネパール",
+    "code": "NP",
+    "region": "Asia",
+    "g7": false
+  },
+  {
+    "country": "New Zealand",
+    "file": "/anthems/nz.mp3",
+    "display_name": "ニュージーランド",
+    "code": "NZ",
+    "region": "Oceania",
+    "g7": false
+  },
+  {
+    "country": "Fiji",
+    "file": "/anthems/fj.mp3",
+    "display_name": "フィジー",
+    "code": "FJ",
+    "region": "Oceania",
+    "g7": false
+  },
+  {
+    "country": "Papua New Guinea",
+    "file": "/anthems/pg.mp3",
+    "display_name": "パプアニューギニア",
+    "code": "PG",
+    "region": "Oceania",
+    "g7": false
+  },
+  {
+    "country": "Samoa",
+    "file": "/anthems/ws.mp3",
+    "display_name": "サモア",
+    "code": "WS",
+    "region": "Oceania",
+    "g7": false
+  },
+  {
+    "country": "Tonga",
+    "file": "/anthems/to.mp3",
+    "display_name": "トンガ",
+    "code": "TO",
+    "region": "Oceania",
+    "g7": false
+  },
+  {
+    "country": "Palau",
+    "file": "/anthems/pw.mp3",
+    "display_name": "パラオ",
+    "code": "PW",
+    "region": "Oceania",
     "g7": false
   }
 ]
