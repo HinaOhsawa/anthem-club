@@ -16,8 +16,14 @@ export default function RegionSelector({ onSelect }: Props) {
         <button onClick={() => onSelect("europe")} className="region-button">
           ヨーロッパ
         </button>
-        <button onClick={() => onSelect("other")} className="region-button">
-          アジア・アフリカ・オセアニア
+        <button onClick={() => onSelect("asia")} className="region-button">
+          アジア
+        </button>
+        <button onClick={() => onSelect("africa")} className="region-button">
+          アフリカ
+        </button>
+        <button onClick={() => onSelect("oceania")} className="region-button">
+          オセアニア
         </button>
         <button onClick={() => onSelect("all")} className="region-button">
           全て

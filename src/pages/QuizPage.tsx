@@ -42,11 +42,12 @@ export default function QuizPage() {
       );
     } else if (region === "europe") {
       filtered = country.filter((q) => q.region === "Europe");
-    } else if (region === "other") {
-      filtered = country.filter(
-        (q) =>
-          q.region === "Asia" || q.region === "Africa" || q.region === "Oceania"
-      );
+    } else if (region === "asia") {
+      filtered = country.filter((q) => q.region === "Asia");
+    } else if (region === "africa") {
+      filtered = country.filter((q) => q.region === "Africa");
+    } else if (region === "oceania") {
+      filtered = country.filter((q) => q.region === "Oceania");
     } else if (region === "g7") {
       filtered = country.filter((q) => q.g7 === true);
     } else {
@@ -71,8 +72,12 @@ export default function QuizPage() {
         return "北アメリカ・南アメリカ";
       case "europe":
         return "ヨーロッパ";
-      case "other":
-        return "アジア・アフリカ・オセアニア";
+      case "asia":
+        return "アジア";
+      case "africa":
+        return "アフリカ";
+      case "oceania":
+        return "オセアニア";
       case "all":
       default:
         return "全ての国";
