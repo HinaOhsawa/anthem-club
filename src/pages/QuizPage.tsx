@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../context/QuizContext";
 import Flag from "react-world-flags";
 import { useSearchParams } from "react-router-dom";
+import { useConfirmModal } from "../hooks/useConfirmModal";
 
 const TOTAL_QUESTIONS = 3; // 問題数
 
@@ -26,6 +27,7 @@ export default function QuizPage() {
   const [searchParams] = useSearchParams();
   const region = searchParams.get("region"); // 出題範囲を取得
   const resultRef = useRef<HTMLDivElement>(null);
+  const { showModal, closeModal } = useConfirmModal(); // 確認モーダル
 
   //---------------------------------------------------
   // JSONファイルから読み込み
@@ -128,6 +130,19 @@ export default function QuizPage() {
 
   return (
     <>
+      {/* 確認モーダル */}
+      {showModal && (
+        <div className="fixed inset-0  bg-stone-950/25 z-50 flex items-center justify-center">
+          <div className="bg-white/95 rounded-xl p-6 max-w-sm w-full text-center shadow-lg border-2 border-orange-700">
+            <p className="text-gray-800 font-bold">
+              国歌が再生されます！準備はいいですか？
+            </p>
+            <button onClick={closeModal} className="button">
+              OK
+            </button>
+          </div>
+        </div>
+      )}
       <h1 className="text-2xl font-kaisei mb-4">国歌当てクイズ</h1>
       <p className="font-bold text-orange-700 mb-4">
         出題範囲：
@@ -136,27 +151,33 @@ export default function QuizPage() {
       <p className="text-xl font-bold py-2 mb-6  bg-orange-200">
         第 {currentIndex + 1} 問
       </p>
-      <QAnthemPlayer file={correct.file} />
 
-      <div className="mt-10">
-        {options.map((opt) => (
-          <button
-            key={opt.country}
-            onClick={() => handleAnswer(opt.country)}
-            className={`answer-button
+      {/* 問題の表示 */}
+      {!showModal && (
+        <>
+          <QAnthemPlayer file={correct.file} playing={false} />
+          <div className="mt-10">
+            {options.map((opt) => (
+              <button
+                key={opt.country}
+                onClick={() => handleAnswer(opt.country)}
+                className={`answer-button
               ${
                 selected &&
                 (opt.country === selected
                   ? "cursor-auto bg-stone-600"
                   : "cursor-auto hover:bg-stone-900")
               }`}
-            disabled={selected !== null}
-          >
-            {opt.display_name}
-          </button>
-        ))}
-      </div>
+                disabled={selected !== null}
+              >
+                {opt.display_name}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
 
+      {/* 正誤判定 */}
       {selected && (
         <>
           <div
@@ -181,7 +202,6 @@ export default function QuizPage() {
           <Flag className="m-auto h-20 shadow-md" code={code} />
         </>
       )}
-
       {selected && (
         <button onClick={handleNext} className="mt-6">
           {currentIndex + 1 == TOTAL_QUESTIONS
